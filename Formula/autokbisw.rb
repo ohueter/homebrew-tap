@@ -1,16 +1,10 @@
 class Autokbisw < Formula
-  desc "Automatic keyboard/input source switching for OSX"
-  homepage "https://github.com/jeantil/autokbisw"
-  url "https://github.com/jeantil/autokbisw/archive/1.2.0.tar.gz"
-  version "1.2.0"
-  sha256 "1c3bfad19b9025ad15f01ea0554351f47225807efd85cb4b4f0b6e1785af3f3e"
-    
-  bottle do
-    root_url "https://github.com/jeantil/autokbisw/releases/download/1.2.0"
-    cellar :any_skip_relocation
-    sha256 "f46d97f6ddd99ad406ce1d990d89023bc7ab1f0a8246089e3d5cf7af1dbd8647" => :high_sierra
-  end
-  
+  desc "Automatic keyboard/input source switching for macOS"
+  homepage "https://github.com/ohueter/autokbisw"
+  version "1.3.0"
+  url "https://github.com/ohueter/autokbisw/archive/refs/tags/1.3.0.tar.gz"
+  sha256 "3d6be660201d8c79e8ff8befd1d073b8e64604fced4b5c4f9b8426100a3a1b9e"
+
   depends_on :xcode
     
   def install
