@@ -8,7 +8,7 @@ class Autokbisw < Formula
   depends_on :xcode
     
   def install
-    system "swift", "build", "-c", "release", "-Xswiftc", "--disable-sandbox"
+    system "swift", "build", "-c", "release", "--disable-sandbox"
     bin.install ".build/release/autokbisw"
   end
     
