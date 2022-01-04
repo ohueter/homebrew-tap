@@ -16,7 +16,8 @@ class Autokbisw < Formula
     system bin/"autokbisw", "--help"
   end
 
-  def plist; <<~EOS
+  def plist
+    <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -26,25 +27,26 @@ class Autokbisw < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{bin}/autokbisw</string>
+          <!--
+            <string>--location</string>
+            <string>--verbose</string>
+            <string>1</string>
+          -->
         </array>
-        <!--
-        <string>--location</string>
-        <string>-v</string>
-        -->   
         <key>RunAtLoad</key>
         <true/>
         <key>KeepAlive</key>
         <true/>
+        <key>StandardErrorPath</key>
+        <string>/dev/null</string>
+        <key>StandardOutPath</key>
+        <string>/dev/null</string>
         <!--
-        <key>StandardOutPath</key>
-        <string>${var}/log/autokbisw.log</string>
-        <key>StandardErrorPath</key>
-        <string>${var}/log/autokbisw.log</string>
+          <key>StandardOutPath</key>
+          <string>${var}/log/autokbisw.log</string>
+          <key>StandardErrorPath</key>
+          <string>${var}/log/autokbisw.log</string>
         -->
-        <key>StandardErrorPath</key>
-        <string>/dev/null</string>
-        <key>StandardOutPath</key>
-        <string>/dev/null</string>
       </dict>
     </plist>
     EOS
