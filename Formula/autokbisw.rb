@@ -1,15 +1,15 @@
 class Autokbisw < Formula
   desc "Automatic keyboard/input source switching for macOS"
   homepage "https://github.com/ohueter/autokbisw"
-  version "1.3.0"
-  url "https://github.com/ohueter/autokbisw/archive/refs/tags/1.3.0.tar.gz"
-  sha256 "3d6be660201d8c79e8ff8befd1d073b8e64604fced4b5c4f9b8426100a3a1b9e"
+  version "1.4.1"
+  url "https://github.com/ohueter/autokbisw/archive/refs/tags/1.4.1.tar.gz"
+  sha256 "1666456372e53f87d29ad2b5402480c0e62839737dabeb93c38387fae50598e4"
 
   depends_on :xcode
     
   def install
-    system "swift", "build", "-c", "release", "--disable-sandbox"
-    bin.install ".build/release/autokbisw"
+    system "swift", "build", "-c", "release", "--disable-sandbox", "--arch", "arm64", "--arch", "x86_64"
+    bin.install ".build/apple/Products/Release/autokbisw"
   end
     
   test do
