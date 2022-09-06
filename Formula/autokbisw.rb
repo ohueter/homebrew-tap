@@ -10,8 +10,11 @@ class Autokbisw < Formula
 
   bottle do
     root_url "https://github.com/ohueter/autokbisw/releases/download/v1.4.1"
-    sha256 monterey: "a8596733b42fd2c882ecfd677ec225844665b9856fc2eb35bb1bffcb21d6bf15"
-    sha256 big_sur:  "28359ae565be040666913bc491fcfb81d7453880914ea664fec61762f298fe6c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad5b2cdc566941b9cece59553e34c5c5043b27c02583effbc4c5b5cfda41c11f"
+    sha256 cellar: :any_skip_relocation, monterey: "ad5b2cdc566941b9cece59553e34c5c5043b27c02583effbc4c5b5cfda41c11f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a8596733b42fd2c882ecfd677ec225844665b9856fc2eb35bb1bffcb21d6bf15"
+    sha256 cellar: :any_skip_relocation, big_sur:  "a8596733b42fd2c882ecfd677ec225844665b9856fc2eb35bb1bffcb21d6bf15"
   end
 
   def install
