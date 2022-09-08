@@ -4,7 +4,6 @@ class Autokbisw < Formula
   version "1.4.3"
   url "https://github.com/ohueter/autokbisw/archive/refs/tags/1.4.3.tar.gz"
   sha256 "c5af10bbc125b53e58731fd00bcb6a8a2909a5aab568c97e1d3e54952e72257f"
-
   depends_on :xcode
     
   def install
