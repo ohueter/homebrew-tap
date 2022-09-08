@@ -1,0 +1,13 @@
+diff --git a/Library/Homebrew/brew.sh b/Library/Homebrew/brew.sh
+index 86b0e855a..d4134516c 100644
+--- a/Library/Homebrew/brew.sh
++++ b/Library/Homebrew/brew.sh
+@@ -5,7 +5,7 @@
+ 
+ # Doesn't need a default case because we don't support other OSs
+ # shellcheck disable=SC2249
+-HOMEBREW_PROCESSOR="$(uname -m)"
++HOMEBREW_PROCESSOR="arm64"
+ HOMEBREW_PHYSICAL_PROCESSOR="${HOMEBREW_PROCESSOR}"
+ HOMEBREW_SYSTEM="$(uname -s)"
+ case "${HOMEBREW_SYSTEM}" in

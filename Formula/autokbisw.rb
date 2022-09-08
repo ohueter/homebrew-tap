@@ -13,8 +13,21 @@ class Autokbisw < Formula
   depends_on :xcode
 
   def install
+    if OS.mac?
+      if Hardware::CPU.arm?
+        system "swift", "build", "-c", "release", "--disable-sandbox", "--arch", "arm64"
+      end
+
+      if Hardware::CPU.intel?
     system "swift", "build", "-c", "release", "--disable-sandbox"
+      end
+    end
+    
     bin.install ".build/release/autokbisw"
+  end
+
+  def post_install
+    system "lipo", "-archs", "-", bin/"autokbisw"
   end
 
   plist_options manual: "autokbisw"
