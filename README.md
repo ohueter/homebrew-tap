@@ -28,8 +28,11 @@ brew audit --strict --online <formula_name>
 brew test <formula_name>
 
 # Create a tar
-tar -czf name-of-tar.tgz path/to/content
+tar -czf name-of-tar.tar.gz path/to/content
 
 # Get the checksum of an archive
 shasum -a 256 name-of-tar.tgz
+
+# Fix style offenses in formula
+brew style --fix ohueter/tap
 ```
