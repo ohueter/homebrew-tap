@@ -11,13 +11,10 @@ class Autokbisw < Formula
     bin.install ".build/release/autokbisw"
   end
 
-  test do
-    system bin/"autokbisw", "--help"
-  end
+  plist_options manual: "autokbisw"
 
-  plist_options :manual => "autokbisw"
-
-  def plist; <<~EOS
+  def plist
+    <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -39,5 +36,9 @@ class Autokbisw < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    system bin/"autokbisw", "--help"
   end
 end
