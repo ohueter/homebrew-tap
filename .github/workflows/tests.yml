@@ -36,7 +36,7 @@ jobs:
       - run: brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
 
-      - run: cd $(brew --repository) && git apply ~/brew_set_arch_arm64.patch
+      - run: cd $(brew --repository) && git apply ${{ env.GITHUB_WORKSPACE }}/brew_set_arch_arm64.patch
 
       - run: brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
