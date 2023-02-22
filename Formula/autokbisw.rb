@@ -10,31 +10,11 @@ class Autokbisw < Formula
     bin.install ".build/release/autokbisw"
   end
 
-  plist_options manual: "autokbisw"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{bin}/autokbisw</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/autokbisw.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/autokbisw.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [bin/"autokbisw"]
+    keep_alive true
+    log_path var/"log/autokbisw.log"
+    error_log_path var/"log/autokbisw.log"
   end
 
   test do
