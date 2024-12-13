@@ -1,8 +1,9 @@
 class Autokbisw < Formula
-  desc "Automatic keyboard/input source switching for macOS"
+  desc "Automatic keyboard input language switching for macOS"
   homepage "https://github.com/ohueter/autokbisw"
-  url "https://github.com/ohueter/autokbisw/archive/refs/tags/1.4.3.tar.gz"
-  sha256 "c5af10bbc125b53e58731fd00bcb6a8a2909a5aab568c97e1d3e54952e72257f"
+  version "2.0.0"
+  url "https://github.com/ohueter/autokbisw/archive/refs/tags/2.0.0.tar.gz"
+  sha256 "25b04edf093b2b19c2c58c3496b1125fb338fce944e31a8c25c7df7aa48da44a"
   depends_on :xcode
 
   def install
