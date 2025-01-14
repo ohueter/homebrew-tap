@@ -11,6 +11,10 @@ class Autokbisw < Formula
     bin.install ".build/release/autokbisw"
   end
 
+  def post_install
+    track_install(formula_name: name, version: version)
+  end
+
   service do
     run [bin/"autokbisw"]
     keep_alive true
@@ -20,5 +24,36 @@ class Autokbisw < Formula
 
   test do
     system bin/"autokbisw", "--help"
+  end
+
+  private def track_install(formula_name:, version:)
+    # Skip if the user has opted out of Homebrew analytics 
+    return if ENV["HOMEBREW_NO_ANALYTICS"]
+  
+    require "uri"
+    require "net/http"
+    require "json"
+  
+    system_language = (ENV["LANGUAGE"] || ENV["LC_ALL"] || ENV["LC_MESSAGES"] || ENV["LANG"] || "en-US").split(":")[0]
+    system_language = "en-US" if system_language == "C"
+  
+    payload = {
+      name: formula_name,
+      version: version,
+      systemLanguage: system_language || "",
+    }
+  
+    begin
+      uri = URI("https://homebrew-telemetry.ohueter.workers.dev")
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = uri.scheme == 'https'
+      
+      request = Net::HTTP::Post.new(uri)
+      request["Content-Type"] = "application/json"
+      request.body = payload.to_json
+  
+      http.request(request)
+    rescue
+    end
   end
 end
